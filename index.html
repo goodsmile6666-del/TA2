@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="서비스명과 민원분야로 필요한 민원서비스를 빠르게 찾아보세요.">
+  <title>한눈에 민원찾기</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231b4d3e'/%3E%3Cpath d='M17 19h30v6H17zm0 10h30v6H17zm0 10h19v6H17z' fill='%23fff'/%3E%3Ccircle cx='45' cy='42' r='8' fill='%23f4c95d'/%3E%3Cpath d='m42 42 2 2 4-5' fill='none' stroke='%231b4d3e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#main" aria-label="한눈에 민원찾기 홈">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span>한눈에 민원찾기</span>
+      </a>
+      <span class="topbar-note">대한민국 민원서비스 안내</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <p class="eyebrow">민원서비스 통합검색</p>
+        <h1 id="page-title">필요한 민원을<br><em>더 빠르고 간편하게</em></h1>
+        <p>서비스명과 민원분야를 선택해 원하는 정보를 바로 확인하세요.</p>
+      </div>
+      <div class="summary" aria-label="서비스 요약">
+        <div>
+          <strong>22</strong>
+          <span>전체 서비스</span>
+        </div>
+        <i aria-hidden="true"></i>
+        <div>
+          <strong>7</strong>
+          <span>민원분야</span>
+        </div>
+        <i aria-hidden="true"></i>
+        <div>
+          <strong>24시간</strong>
+          <span>온라인 검색</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-panel" aria-label="민원서비스 검색 및 필터">
+      <div class="search-field">
+        <label for="searchInput">서비스명 검색</label>
+        <div class="input-wrap">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+          <input id="searchInput" type="search" placeholder="예: 주민등록, 여권, 전입" autocomplete="off">
+          <button id="clearSearch" class="clear-button" type="button" aria-label="검색어 지우기" hidden>×</button>
+        </div>
+      </div>
+      <div class="filter-field">
+        <label for="categoryFilter">민원분야</label>
+        <div class="select-wrap">
+          <select id="categoryFilter">
+            <option value="all">전체 분야</option>
+          </select>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"></path></svg>
+        </div>
+      </div>
+      <button id="resetButton" class="reset-button" type="button">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 1-2.3-5.7L20 7.6"></path><path d="M20 3v5h-5"></path></svg>
+        초기화
+      </button>
+    </section>
+
+    <section class="results" aria-labelledby="results-title">
+      <div class="results-heading">
+        <div>
+          <p class="section-kicker">검색 결과</p>
+          <h2 id="results-title"><span id="resultCount">22</span>건의 민원서비스</h2>
+        </div>
+        <p id="activeFilter" class="active-filter" aria-live="polite">전체 목록을 표시하고 있습니다.</p>
+      </div>
+
+      <div class="table-shell">
+        <div class="table-head" aria-hidden="true">
+          <span>서비스명</span>
+          <span>소관기관</span>
+          <span>민원분야</span>
+          <span>온라인 처리</span>
+          <span>처리기한</span>
+          <span>수수료</span>
+        </div>
+        <div id="serviceList" class="service-list" aria-live="polite"></div>
+        <div id="emptyState" class="empty-state" hidden>
+          <span class="empty-icon" aria-hidden="true">?</span>
+          <h3>검색 결과가 없습니다</h3>
+          <p>검색어를 줄이거나 다른 민원분야를 선택해 보세요.</p>
+          <button id="emptyReset" type="button">전체 목록 보기</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>민원 신청 전 해당 기관의 최신 안내를 확인해 주세요.</p>
+    <p>© 2026 한눈에 민원찾기</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
